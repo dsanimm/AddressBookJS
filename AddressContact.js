@@ -164,3 +164,21 @@ function countEntries(total) {
 }
 let countOfContacts = contactsArr.reduce(countEntries, 0);
 console.log('Number of Contacts in Array : ' + countOfContacts);
+
+//UC8
+function searchByCityOrState(field, value, AddressBook) {
+    if (field == "City") {
+        console.log('The Contacts in the City : ' + value);
+        AddressBook.filter(contact => contact.city == value).forEach(contact => {
+            console.log(contact);
+        });
+    }
+    if (field == "State") {
+        console.log('The Contacts in the State : ' + value);
+        AddressBook.filter(contact => contact.state == value).forEach(contact => {
+            console.log(contact);
+        });
+    }
+}
+searchByCityOrState("City", "Ghaziabad", contactsArr);
+searchByCityOrState("State", "Uttar Pradesh", contactsArr);
