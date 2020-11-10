@@ -1,4 +1,4 @@
-class AddContact {
+class Contact {
     //Constructor
     constructor(...params) {
         this.firstName = params[0];
@@ -111,5 +111,21 @@ class AddContact {
             ' Phone Number : ' + this.phoneNumber + ' Email : ' + this.email + ' ]';
     }
 }
-let contact = new Contact("Deepanshu", "Singh", "sample address", "Ghaziabad", "Uttar Pradesh", 201201, 9536985460, "dsanimm@gmail.com");
-console.log(contact.toString());
+let contact;
+try {
+    contact = new Contact("Deepanshu", "Singh", "Sample Address", "Ghaziabad", "Uttar Pradesh", "201 201", "+91 9536985460", "dsanimm@gmail.com");
+    console.log(contact.toString());
+} catch (e) {
+    console.log(e);
+}
+
+//UC3
+let contactsArr = new Array();
+contactsArr.push(contact);
+try {
+    contactsArr.push(new Contact("Rohit", "Sharma", "Tilak Sadak", "Mumbai", "Maharashtra", "400672", "+91 9627272772", "rohit26627@gmail.com"));
+    contactsArr.push(new Contact("Virat", "Kohli", "Deshpran Marg", "Delhi", "New Delhi", "100672", "+91 8096456234", "virat.business@gmail.com"));
+} catch (e) {
+    console.log(e);
+}
+console.log(contactsArr);
