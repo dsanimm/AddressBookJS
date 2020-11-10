@@ -119,12 +119,30 @@ try {
     console.log(e);
 }
 
-//UC3
+//UC3 & UC7 Prevent Duplicate Entries
 let contactsArr = new Array();
-contactsArr.push(contact);
+function isContactPresent(firstName, lastName, addressBook) {
+    if (addressBook.length == 0) {
+        return false;
+    }
+    let newArr = addressBook.filter(contact => contact.firstName == firstName && contact.lastName == lastName);
+    if (newArr.length == 0) return false;
+    else return true;
+}
+function addContact(contact, AddressBook) {
+    if (isContactPresent(contact.firstName, contact.lastName, AddressBook)) {
+        throw 'This Contact is Already Present !';
+    }
+    else {
+        AddressBook.push(contact);
+        return AddressBook;
+    }
+}
 try {
-    contactsArr.push(new Contact("Rohit", "Sharma", "Tilak Sadak", "Mumbai", "Maharashtra", "400672", "+91 9627272772", "rohit26627@gmail.com"));
-    contactsArr.push(new Contact("Virat", "Kohli", "Deshpran Marg", "Delhi", "New Delhi", "100672", "+91 8096456234", "virat.business@gmail.com"));
+    contactsArr = addContact(contact, contactsArr);
+    contactsArr = addContact(new Contact("Rohit", "Sharma", "Tilak Sadak", "Mumbai", "Maharashtra", "400672", "+91 9627272772", "rohit26627@gmail.com"), contactsArr);
+    contactsArr = addContact(new Contact("Virat", "Kohli", "Deshpran Marg", "Delhi", "New Delhi", "100672", "+91 8096456234", "virat.business@gmail.com"), contactsArr);
+    contactsArr = addContact(new Contact("Virat", "Kohli", "Deshpran Marg", "Delhi", "New Delhi", "100672", "+91 8096456234", "virat.business@gmail.com"), contactsArr);
 } catch (e) {
     console.log(e);
 }
