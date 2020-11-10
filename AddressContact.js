@@ -175,7 +175,7 @@ function searchInCityOrState(field, value, AddressBook, name) {
     }
     if (field == "State") {
         console.log('The Contact in the State : ' + value);
-        AddressBook.filter(contact => contact.state == value).filter(contact =>contact.firstName == name).forEach(contact => {
+        AddressBook.filter(contact => contact.state == value).filter(contact => contact.firstName == name).forEach(contact => {
             console.log(contact);
         });
     }
@@ -201,3 +201,19 @@ function searchByCityOrState(field, value, AddressBook) {
 }
 searchByCityOrState("City", "Ghaziabad", contactsArr);
 searchByCityOrState("State", "Uttar Pradesh", contactsArr);
+
+//UC10
+function countByCityOrState(field, value, AddressBook) {
+    if (field == "City") {
+        console.log('The number of Contacts in the City : ' + value);
+        console.log(AddressBook.filter(contact => contact.city == value).length
+        );
+    }
+    if (field == "State") {
+        console.log('The number of Contacts in the State : ' + value);
+        console.log(AddressBook.filter(contact => contact.state == value).length
+        );
+    }
+}
+countByCityOrState("City", "Ghaziabad", contactsArr);
+countByCityOrState("State", "Uttar Pradesh", contactsArr);
