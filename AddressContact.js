@@ -139,3 +139,10 @@ console.log(contactsArr);
 contactsArr.filter(contact => contact.firstName == "Virat" && contact.lastName == "Kohli")
     .forEach(contact => contactsArr.pop(contact));
 console.log(contactsArr);
+
+//UC6
+function countEntries(total) {
+    return total + 1;
+}
+let countOfContacts = contactsArr.reduce(countEntries, 0);
+console.log('Number of Contacts in Array : ' + countOfContacts);
