@@ -134,3 +134,8 @@ console.log(contactsArr);
 contactsArr.filter(contact => contact.firstName == "Virat" && contact.lastName == "Kohli")
     .forEach(contact => { contact.address = "Anand Bhawan Sadak"; });
 console.log(contactsArr);
+
+//UC5
+contactsArr.filter(contact => contact.firstName == "Virat" && contact.lastName == "Kohli")
+    .forEach(contact => contactsArr.pop(contact));
+console.log(contactsArr);
