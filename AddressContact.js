@@ -166,6 +166,25 @@ let countOfContacts = contactsArr.reduce(countEntries, 0);
 console.log('Number of Contacts in Array : ' + countOfContacts);
 
 //UC8
+function searchInCityOrState(field, value, AddressBook, name) {
+    if (field == "City") {
+        console.log('The Contact in the City : ' + value);
+        AddressBook.filter(contact => contact.city == value).filter(contact => contact.firstName == name).forEach(contact => {
+            console.log(contact);
+        });
+    }
+    if (field == "State") {
+        console.log('The Contact in the State : ' + value);
+        AddressBook.filter(contact => contact.state == value).filter(contact =>contact.firstName == name).forEach(contact => {
+            console.log(contact);
+        });
+    }
+}
+searchInCityOrState("City", "Ghaziabad", contactsArr, "Deepanshu");
+searchInCityOrState("State", "Maharashtra", contactsArr, "Rohit");
+
+
+//UC9
 function searchByCityOrState(field, value, AddressBook) {
     if (field == "City") {
         console.log('The Contacts in the City : ' + value);
