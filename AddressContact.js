@@ -217,3 +217,20 @@ function countByCityOrState(field, value, AddressBook) {
 }
 countByCityOrState("City", "Ghaziabad", contactsArr);
 countByCityOrState("State", "Uttar Pradesh", contactsArr);
+
+//UC11 Sort Array By name
+function printSortedArray(field, AddressBook) {
+    let newSortedBook = new Array();
+    AddressBook.forEach(contact => { newSortedBook.push(contact); });
+    if (field == "Name") {
+        function compareName(a, b) {
+            if (a.firstName + a.lastName > b.firstName + b.lastName) return 1;
+            if (a.firstName + a.lastName < b.firstName + b.lastName) return -1;
+            return 0;
+        }
+        newSortedBook.sort(compareName);
+        console.log('The List Of Contacts Sorted By : ' + field);
+        console.log(newSortedBook);
+    }
+}
+printSortedArray("Name", contactsArr);
